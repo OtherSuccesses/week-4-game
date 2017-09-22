@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Final Fantasy Game</title>
+	<!--Links for stylesheets
+	-->
+	<link rel='stylesheet' href='assets/css/reset.css'>
+	<link rel='stylesheet' type='text/css' href='assets/css/style.css'>
+	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<!--Header
+	-->
+<h1 id="game-header">Final Fantasy Showdown</h1>
+	<!--Character Select Section
+	-->
+<div id ="character-select">
+	<h2 id = "choose-character">Choose your character:</h2>
+	<button class = "character" id="squall">Squall<br>
+		<img id = "squall-img" src="assets/images/squall.jpg" height="200" width ="200" alt="Squall"><br>
+		<span id ="squall-hp"></span>
+	</button>
+	<button class = "character" id="sephiroth">Sephiroth<br>
+		<img id = "sephiroth-img" src="assets/images/sephiroth.jpg" height="200" width ="200" alt="Sephiroth"><br> 
+		<span id ="sephiroth-hp"></span>
+	</button>
+	<button class = "character" id="vivi">Vivi<br>
+		<img id = "vivi-img" src="assets/images/vivi.jpg" height="200" width ="200" alt="Vivi"><br> 
+		<span id ="vivi-hp"></span>
+	</button>
+	<button class = "character" id="kefka">Kefka<br>
+		<img id = "kefka-img" src="assets/images/kefka.jpg" height="200" width ="200" alt="Kefka"><br>
+		<span id ="kefka-hp"></span>
+	</button>
+</div>
+	<!--Battle Area!
+	-->
+<div id = "battle-area">
+<div id = "player-character">
+	<h2 id = "pc-head">Your Character:</h2>
+</div>
+<div id = "enemies-available">
+	<h2 id = "adversary-select"></h2>
+</div>
+<div id = "enemy-character">
+	<h2 id = "npc-head">Enemy:</h2>
+</div>
+
+<button id = "attack-btn">Attack!</button>
+</div>
+
+<script src="assets/js/js.js">
+
+</script>
+
+</body>
+</html>
