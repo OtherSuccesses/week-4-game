@@ -43,19 +43,44 @@ h2{
 	margin-top:10px;
 }
 
+p{
+	color: #BEB2C8;
+	font-style: bold;
+	font-family: 'Cinzel', serif;
+	font-size: 15px;
+}
+
 #choose-character{
 	margin-bottom: 0px;
 }
 
 #enemy-character{
-	float: right;
+	position: absolute;
+	right: 0px;
 	text-align: center;
 	margin-right: 30px;
-	right:25px;
+}
+
+#player-character{
+	position: absolute;
+	float: left;
+}
+
+#report-area{
+	position:absolute;
+	float: center;
+	right: 600px;
+	top:50px;
+	width:30%;
+}
+
+#report{
+	text-align: center;
 }
 
 #attack-btn{
-	float: center;
+	margin-left: 100px;
+	margin-right: 100px;
 }
 
 #battle-area{

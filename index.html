@@ -38,17 +38,22 @@
 	<!--Battle Area!
 	-->
 <div id = "battle-area">
-<div id = "player-character">
-	<h2 id = "pc-head">Your Character:</h2>
-</div>
-<div id = "enemies-available">
-	<h2 id = "adversary-select"></h2>
-</div>
-<div id = "enemy-character">
-	<h2 id = "npc-head">Enemy:</h2>
+	<div id = "player-character">
+		<h2 id = "pc-head">Your Character:</h2>
+	</div>
+	<div id = "report-area">
+		<button id = "attack-btn" class = "hidden">Attack!</button>
+		<div id = "report">
+			<p id = "attack-outcome"></p>
+		</div>
+	</div>
+	<div id = "enemy-character">
+		<h2 id = "npc-head" class = "hidden">Enemy:</h2>
+	</div>
 </div>
 
-<button id = "attack-btn">Attack!</button>
+<div>
+	<button id="restart" class="hidden">Restart</button>
 </div>
 
 <script src="assets/js/js.js">
