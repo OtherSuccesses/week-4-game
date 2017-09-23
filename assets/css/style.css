@@ -69,7 +69,8 @@ p{
 #report-area{
 	position:absolute;
 	float: center;
-	right: 600px;
+	right: 30%;
+	left: 30%;
 	top:50px;
 	width:30%;
 }
@@ -86,8 +87,16 @@ p{
 #battle-area{
 	width: 100%;
 	position: relative;
+	margin:auto;
 }
 
 .hidden{
 	display: none;
+}
+
+#restart{
+	position:absolute;
+	top:30px;
+	left:30px;
+	margin-bottom: 30px;
 }

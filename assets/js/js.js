@@ -7,53 +7,60 @@ var game = {
 	//Characters
 	"squall": {
 		"name": "Squall Leonhart",
-		"attack": 8,
-		"counter": 40,
-		"health":150,
+		"attack": 12,
+		"baseAttack": 12,
+		"counter": 30,
+		"health":170,
 		"id":"#squall",
 		"hpId": "#squall-hp",
 	},
 	"sephiroth": {
 		"name": "Sephiroth",
-		"attack": 15,
-		"counter": 50,
-		"health":200,
+		"attack": 13,
+		"baseAttack": 13	,
+		"counter": 35,
+		"health":180,
 		"id":"#sephiroth",
 		"hpId": "#sephiroth-hp",
 	},
 	"vivi": {
 		"name": "Vivi",
-		"attack": 35,
-		"counter": 10,
-		"health":140,
+		"attack": 26,
+		"baseAttack": 26,
+		"counter": 15,
+		"health":130,
 		"id":"#vivi",
 		"hpId": "#vivi-hp",
 	},
 	"kefka": {
 		"name": "Kefka",
-		"attack": 10,
-		"counter": 60,
-		"health":230,
+		"attack": 12,
+		"baseAttack": 12,
+		"counter": 30,
+		"health":200,
 		"id":"#kefka",
 		"hpId": "#kefka-hp",
 	},
 	"playerChosen":false,
 	"enemyChosen":false,
 	"enemyDefeated": 0,
+	"npcDied":false,
 
 
 	selectChar: function(){
 		$("#choose-character").html("Select your adversary");
 		$(game.pc.id).detach().appendTo("#player-character");
 		$(game.pc.hpId).html(game.pc.health);
+		$("#restart").removeClass("hidden");
 	},
 
 	selectNPC: function(){
-		$(game.npc.id).detach().appendTo("#enemy-character");
 		$("#character-select").addClass("hidden");
 		$("#attack-btn").removeClass("hidden");
 		$("#npc-head").removeClass("hidden");
+		$(game.npc.id).detach().appendTo("#enemy-character");
 		$(game.npc.hpId).html(game.npc.health);
+		npcDied = false;
 	},
 
 	attackBtn: function(){
@@ -67,11 +74,13 @@ var game = {
 		game.npc.health = game.npc.health - game.pc.attack;
 		$(game.npc.hpId).html(game.npc.health);
 		game.npcDeath();
-		game.pc.health = game.pc.health - game.npc.counter;
+		if (npcDied == false){
+			game.pc.health = game.pc.health - game.npc.counter;
+			game.attackReport();
+			game.pcDeath();
+		}
 		$(game.pc.hpId).html(game.pc.health);
-		game.attackReport();
-		game.pcDeath();
-		game.pc.attack = game.pc.attack * 2;
+		game.pc.attack = game.pc.attack + game.pc.baseAttack;
 	},
 
 //Check for Enemy Death.
@@ -82,9 +91,35 @@ var game = {
 			game.enemyChosen = false;
 			$("#choose-character").html("Select your next adversary");
 			$("#attack-btn").addClass("hidden");
+			$("#npc-head").addClass("hidden");
 			game.enemyDefeated++;
 			game.victory();
+			npcDied = true;
 		}
+	},
+
+	restart: function(){
+		$("#restart").on("click", function(){
+			game.restartBtn();
+			console.log("button worked");
+		})
+	},
+
+	restartBtn: function(){
+		location.reload();
+		// console.log("function worked");
+		// $(game.pc.id).detach().appendTo("#choose-character");
+		// $(game.npc.id).detach().appendTo("#choose-character");
+		// $("#choose-character").removeClass("hidden");
+		// game.pc = {
+		// },
+		// game.npc = {
+		// },
+		// $("#choose-character").html("Choose your character:");
+		// enemyDefeated = false;
+		// npcDied = false;
+		// game.playerChosen = false;
+		// game.enemyChosen = false;
 	},
 
 //Check for character death.
@@ -183,3 +218,4 @@ var game = {
 
 game.characterListen();
 game.attackBtn();
+game.restart();
